@@ -12,6 +12,7 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { PageModule } from './layouts/page/page.module';
 import { AdminPageModule } from './layouts/admin-page/admin-page.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -29,7 +30,8 @@ import { AdminPageModule } from './layouts/admin-page/admin-page.module';
     AppRoutingModule,
     DefaultModule,
     PageModule,
-    AdminPageModule
+    AdminPageModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

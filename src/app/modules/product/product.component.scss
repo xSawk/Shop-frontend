@@ -1,0 +1,21 @@
+:host{
+    display:flex;
+    flex-direction: column;
+    
+}
+.first-box{
+    margin-left: 15px;
+}
+.price{
+    font-size: 30px;
+    font-weight: 400;
+    margin-top: 35px;
+    margin-right: 20px;
+}
+.contentProduct{
+    font-size: 15px;
+}
+mat-card{
+    margin-bottom: 30px;
+}
+
