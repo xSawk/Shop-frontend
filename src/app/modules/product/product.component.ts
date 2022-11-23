@@ -18,7 +18,8 @@ export class ProductComponent {
   products: Product[] = [];
 
   getProducts(){
-    this.products = this.productService.getProducts();
+    this.productService.getProducts()
+    .subscribe(products => this.products = products);
   }
 
 }

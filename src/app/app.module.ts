@@ -13,6 +13,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { PageModule } from './layouts/page/page.module';
 import { AdminPageModule } from './layouts/admin-page/admin-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -31,7 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DefaultModule,
     PageModule,
     AdminPageModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
