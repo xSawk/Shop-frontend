@@ -18,3 +18,11 @@
       <button mat-button>Buy</button>
     </mat-card-actions>
   </mat-card>
+  <mat-paginator [length]="totalElements"
+              [pageSize]="10"
+              [pageSizeOptions]="[10, 25, 50, 100]"
+              aria-label="Select page"
+              (page)="onPageEvent($event)"
+              >
+              
+</mat-paginator>

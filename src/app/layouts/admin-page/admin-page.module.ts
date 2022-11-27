@@ -4,18 +4,22 @@ import { AdminComponent } from 'src/app/modules/admin/admin.component';
 import { AdminPageComponent } from './admin-page.component';
 import { RouterModule } from '@angular/router';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { MaterialModule } from 'src/app/shared/material.module';
+import { AdminProductComponent } from 'src/app/modules/admin/admin-product/admin-product.component';
 
 
 
 @NgModule({
   declarations: [
     AdminPageComponent,
-    AdminComponent
+    AdminComponent,
+    AdminProductComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MaterialModule
   ]
 })
 export class AdminPageModule { }
