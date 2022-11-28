@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from './layouts/admin-page/admin-page.component';
 import { DefaultComponent } from './layouts/default/default.component';
 import { PageComponent } from './layouts/page/page.component';
+import { AdminProductUpdateComponent } from './modules/admin/admin-product-update/admin-product-update.component';
 import { AdminProductComponent } from './modules/admin/admin-product/admin-product.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
@@ -28,7 +29,8 @@ const routes: Routes = [
   path:'', component: AdminPageComponent, children: [
     
     { path:'admin', component: AdminComponent},
-    { path:'admin/products', component: AdminProductComponent}
+    { path:'admin/products', component: AdminProductComponent},
+    { path:'admin/products/update/:id', component: AdminProductUpdateComponent}
     
   ]
 }

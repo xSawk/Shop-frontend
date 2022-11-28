@@ -14,6 +14,7 @@ import { PageModule } from './layouts/page/page.module';
 import { AdminPageModule } from './layouts/admin-page/admin-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminProductUpdateComponent } from './modules/admin/admin-product-update/admin-product-update.component';
 
 
 
@@ -21,6 +22,7 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
+    
     
 
     
