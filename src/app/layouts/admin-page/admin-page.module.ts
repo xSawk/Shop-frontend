@@ -8,6 +8,8 @@ import { MaterialModule } from 'src/app/shared/material.module';
 import { AdminProductComponent } from 'src/app/modules/admin/admin-product/admin-product.component';
 import { AdminProductUpdateComponent } from 'src/app/modules/admin/admin-product-update/admin-product-update.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AdminProductAddComponent } from 'src/app/modules/admin/admin-product-add/admin-product-add.component';
+import { AdminConfirmDialogComponent } from 'src/app/modules/admin/admin-confirm-dialog/admin-confirm-dialog.component';
 
 
 
@@ -16,7 +18,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminPageComponent,
     AdminComponent,
     AdminProductComponent,
-    AdminProductUpdateComponent
+    AdminProductUpdateComponent,
+    AdminProductAddComponent,
+    AdminConfirmDialogComponent
   ],
   imports: [
     CommonModule,

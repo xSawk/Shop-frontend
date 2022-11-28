@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTable } from '@angular/material/table';
 import { startWith, switchMap } from 'rxjs';
+import { AdminConfirmDialogService } from '../admin-confirm-dialog.service';
 import { AdminProductService } from './admin-product.service';
 import { AdminProduct } from './adminProduct';
 
@@ -13,11 +15,15 @@ export class AdminProductComponent implements AfterViewInit {
 
 
   dataSource: AdminProduct[] = [];
-  @ViewChild(MatPaginator) paginator!: MatPaginator
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatTable) table!: MatTable<any>;
   displayedColumns: string[] = ["id","name","price","actions"];
   totalElements: number = 0;
 
-  constructor(private adminProductService: AdminProductService){
+  constructor(private adminProductService: AdminProductService,
+    private adminConfirmDialogService: AdminConfirmDialogService
+    
+    ){
 
   }
   
@@ -34,6 +40,26 @@ export class AdminProductComponent implements AfterViewInit {
     });
 
 
+  }
+
+  confirmDelete(element: AdminProduct){
+      this.adminConfirmDialogService.openDialog()
+      .afterClosed()
+      .subscribe(result => {
+      if(result){
+        this.adminProductService.delete(element.id)
+        .subscribe(() => {
+          this.dataSource.forEach((value,index) => {
+            if(element == value) {
+              this.dataSource.splice(index, 1);
+              this.table.renderRows();
+            }
+
+          })
+        });
+      }
+
+      });
   }
 
 

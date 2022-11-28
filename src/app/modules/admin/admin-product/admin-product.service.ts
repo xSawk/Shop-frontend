@@ -8,6 +8,7 @@ import { AdminProduct } from './adminProduct';
   providedIn: 'root'
 })
 export class AdminProductService {
+ 
 
   constructor(private http: HttpClient) { }
 
@@ -17,5 +18,9 @@ export class AdminProductService {
     return this.http.get<Page<AdminProduct>>(`/api/admin/products?page=${page}&size=${size}`);
 
 
+  }
+
+  delete(id: number): Observable<void> {
+    return this.http.delete<void>('/api/admin/product/'+id);
   }
 }
