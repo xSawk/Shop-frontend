@@ -9,6 +9,7 @@ import { AdminProductComponent } from './modules/admin/admin-product/admin-produ
 import { AdminComponent } from './modules/admin/admin.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { LoginComponent } from './modules/login/login.component';
+import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 import { ProductComponent } from './modules/product/product.component';
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
     
     { path:'', component: HomePageComponent},
     { path:'products', component: ProductComponent},
+    { path:'products/:id', component: ProductDetailsComponent},
   ]
 },
 {
