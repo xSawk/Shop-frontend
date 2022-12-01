@@ -27,6 +27,11 @@
       <div fxFlexAlign="center">
         <button mat-flat-button color="primary">Submit</button>
       </div>
-  
 
   </form>
+  <img *ngIf="image" src="{{'/api/data/productImg/' + image}}" width="200">
+
+  <form [formGroup]="imageForm" (submit)="uploadFile()">
+    <input type="file" [accept]="requiredFileTypes" (change)="onFileChange($event)">
+    <button mat-flat-button color="basic">Upload</button>
+</form>

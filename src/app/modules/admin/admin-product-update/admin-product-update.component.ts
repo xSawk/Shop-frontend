@@ -14,49 +14,100 @@ export class AdminProductUpdateComponent implements OnInit {
 
   product!: AdminProductUpdate;
   productForm!: FormGroup;
+  imageForm!: FormGroup;
+  requiredFileTypes = "image/jpeg, image/png";
+  image: string | null = null;
 
-  constructor(private router: ActivatedRoute, private adminProductUpdateService: AdminProductUpdateService, 
+  constructor(private router: ActivatedRoute, 
+    private adminProductUpdateService: AdminProductUpdateService, 
     private formBulider: FormBuilder){
 
   }
   ngOnInit(): void {
     this.getProduct();
+    
 
     this.productForm = this.formBulider.group({
         name: [''],
         description: [''],
         category: [''],
         price: [''],
-        currency: ['PLN']
+        currency: ['PLN'],
+
+    });
+
+    this.imageForm = this.formBulider.group({
+      file: ['']
+    })
+  }
+
+  getProduct() {
+    let id = Number(this.router.snapshot.params['id']);
+    this.adminProductUpdateService.getProduct(id)
+      .subscribe(product => this.mapFormValues(product));
+  }
+      
+  
+  submit() {
+    let id = Number(this.router.snapshot.params['id']);
+    this.adminProductUpdateService.saveProduct(id, {
+      name: this.productForm.get('name')?.value,
+      description: this.productForm.get('description')?.value,
+      category: this.productForm.get('category')?.value,
+      price: this.productForm.get('price')?.value,
+      currency: this.productForm.get('currency')?.value,
+      image: this.image
+    } as AdminProductUpdate).subscribe({
+      next: result => {
+        this.mapFormValues(result);
+       
+      },
+      error: err => console.log(err)
     });
   }
 
-  getProduct(){
-    let id = Number(this.router.snapshot.params['id']);
-    this.adminProductUpdateService.getProduct(id).subscribe(
-      product => this.productForm.setValue({
-        name: product.name,
-        description: product.description,
-        category: product.category,
-        price: product.price,
-        currency: product.currency
 
-      }));
+ 
+
+  onFileChange(event: any){
+    if(event.target.files.length > 0){
+      this.imageForm.patchValue({
+        file: event.target.files[0]
+      });
+    }
   }
 
-  submit() {
-    let id = Number(this.router.snapshot.params['id']);
-    this.adminProductUpdateService.saveProduct(id, this.productForm.value).subscribe(
-      // put return it again to refresh form
-      product => this.productForm.setValue({
-        name: product.name,
-        description: product.description,
-        category: product.category,
-        price: product.price,
-        currency: product.currency
-
-      }));
+  uploadFile(){
+    let formData = new FormData();
+    formData.append('file', this.imageForm.get('file')?.value);
+    this.adminProductUpdateService.uploadImage(formData)
+      .subscribe(result => this.image = result.filename);
+      console.log(this.image);
   }
+  
+
+
+private mapFormValues(product: AdminProductUpdate): void {
+  this.productForm.setValue({
+    name: product.name,
+    description: product.description,
+    category: product.category,
+    price: product.price,
+    currency: product.currency,
     
+  });
+  this.image = product.image;
+}
+
+
+
+
+
+
+
+
 
 }
+    
+
+
