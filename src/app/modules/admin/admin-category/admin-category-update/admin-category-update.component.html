@@ -1,0 +1,17 @@
+<form fxLayout="column" [formGroup]="categoryForm" (submit)="submit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Category name</mat-label>
+      <input matInput placeholder="Name of category" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Category description </mat-label>
+        <textarea matInput rows="5" placeholder="Desc of category" formControlName="description"></textarea>
+      </mat-form-field>
+
+      <div fxFlexAlign="center">
+        <button mat-flat-button color="primary">Submit</button>
+      </div>
+ 
+
+  </form>

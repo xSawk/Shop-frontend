@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { AdminProductService } from '../admin-product/admin-product.service';
+import { AdminCategoryNamesDto } from '../common/dto/adminCategoryNamesDto';
 import { AdminProductUpdateService } from './admin-product-update.service';
+
 import { AdminProductUpdate } from './model/adminProductUpdate';
 
 @Component({
@@ -17,6 +19,7 @@ export class AdminProductUpdateComponent implements OnInit {
   imageForm!: FormGroup;
   requiredFileTypes = "image/jpeg, image/png";
   image: string | null = null;
+  categories: Array<AdminCategoryNamesDto> = [];
 
   constructor(private router: ActivatedRoute, 
     private adminProductUpdateService: AdminProductUpdateService, 
@@ -25,12 +28,13 @@ export class AdminProductUpdateComponent implements OnInit {
   }
   ngOnInit(): void {
     this.getProduct();
+    this.getCategories();
     
 
     this.productForm = this.formBulider.group({
         name: [''],
         description: [''],
-        category: [''],
+        categoryId: [''],
         price: [''],
         currency: ['PLN'],
 
@@ -46,6 +50,11 @@ export class AdminProductUpdateComponent implements OnInit {
     this.adminProductUpdateService.getProduct(id)
       .subscribe(product => this.mapFormValues(product));
   }
+
+  getCategories(){
+     this.adminProductUpdateService.getCategories()
+     .subscribe(categories => this.categories = categories)
+  }
       
   
   submit() {
@@ -53,7 +62,7 @@ export class AdminProductUpdateComponent implements OnInit {
     this.adminProductUpdateService.saveProduct(id, {
       name: this.productForm.get('name')?.value,
       description: this.productForm.get('description')?.value,
-      category: this.productForm.get('category')?.value,
+      categoryId: this.productForm.get('categoryId')?.value,
       price: this.productForm.get('price')?.value,
       currency: this.productForm.get('currency')?.value,
       image: this.image
@@ -91,7 +100,7 @@ private mapFormValues(product: AdminProductUpdate): void {
   this.productForm.setValue({
     name: product.name,
     description: product.description,
-    category: product.category,
+    categoryId: product.categoryId,
     price: product.price,
     currency: product.currency,
     
