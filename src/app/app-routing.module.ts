@@ -10,10 +10,12 @@ import { AdminProductAddComponent } from './modules/admin/admin-product-add/admi
 import { AdminProductUpdateComponent } from './modules/admin/admin-product-update/admin-product-update.component';
 import { AdminProductComponent } from './modules/admin/admin-product/admin-product.component';
 import { AdminComponent } from './modules/admin/admin.component';
+import { CategoryComponent } from './modules/category/category.component';
 import { HomePageComponent } from './modules/home-page/home-page.component';
 import { LoginComponent } from './modules/login/login.component';
 import { ProductDetailsComponent } from './modules/product-details/product-details.component';
 import { ProductComponent } from './modules/product/product.component';
+
 
 const routes: Routes = [
 {
@@ -22,6 +24,7 @@ const routes: Routes = [
     { path:'', component: HomePageComponent},
     { path:'products', component: ProductComponent},
     { path:'products/:id', component: ProductDetailsComponent},
+    { path:'categories/:id', component: CategoryComponent}
   ]
 },
 {
@@ -49,7 +52,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {onSameUrlNavigation: 'reload'})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
