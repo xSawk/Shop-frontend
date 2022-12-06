@@ -1,8 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { filter, Subscription } from 'rxjs';
 import { CategoryService } from './category.service';
 import { Category } from './model/category';
+import { CategoryProducts } from './model/categoryProducts';
 
 @Component({
   selector: 'app-category',
@@ -14,7 +16,7 @@ export class CategoryComponent implements OnInit, OnDestroy {
   
 
 
-  category?: Category;
+  categoryProducts?: CategoryProducts;
   private sub!: Subscription;
 
   constructor(private categoryService: CategoryService,
@@ -26,12 +28,12 @@ export class CategoryComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
 
    
-    this.getCategoriesWithProduct();
+    this.getCategoriesWithProduct(0,15);
 
     this.sub = this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
 
-     ).subscribe(()=> this.getCategoriesWithProduct());
+     ).subscribe(()=> this.getCategoriesWithProduct(0,15));
 
 
   }
@@ -42,10 +44,14 @@ export class CategoryComponent implements OnInit, OnDestroy {
 
 
 
-  getCategoriesWithProduct(){
+  getCategoriesWithProduct(page: number, size: number){
       let id = this.route.snapshot.params['id'];
-      this.categoryService.getCategoriesWithProduct(id)
-      .subscribe(category => this.category = category);
+      this.categoryService.getCategoriesWithProduct(id, page, size)
+      .subscribe(categoryProducts => this.categoryProducts = categoryProducts);
   }
+
+  onPageEvent(event: PageEvent){
+    this.getCategoriesWithProduct(event.pageIndex,event.pageSize)
+}
 
 }

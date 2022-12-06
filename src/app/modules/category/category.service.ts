@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Category } from './model/category';
+import { CategoryProducts } from './model/categoryProducts';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,8 @@ export class CategoryService {
 
 
 
-  getCategoriesWithProduct(id: number): Observable<Category> {
-      return this.http.get<Category>(`/api/categories/${id}/products`)
+  getCategoriesWithProduct(id: number,page: number, size:number): Observable<CategoryProducts> {
+      return this.http.get<CategoryProducts>(`/api/categories/${id}/products?page=${page}&size=${size}`)
       
 
   }
