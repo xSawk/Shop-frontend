@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AdminProductUpdateService } from '../admin-product-update/admin-product-update.service';
-import { AdminProductUpdate } from '../admin-product-update/model/adminProductUpdate';
+
 import { AdminProductAddService } from './admin-product-add.service';
 
 @Component({

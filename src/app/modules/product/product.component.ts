@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Product } from './model/product';
+import { Product } from '../common/model/product';
 import { ProductService } from './product.service';
 
 @Component({

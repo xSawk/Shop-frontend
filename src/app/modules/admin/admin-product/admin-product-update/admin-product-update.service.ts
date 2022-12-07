@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { AdminCategoryNamesDto } from '../common/dto/adminCategoryNamesDto';
+import { AdminCategoryNamesDto } from '../../common/dto/adminCategoryNamesDto';
 
-import { AdminProductUpdate } from './model/adminProductUpdate';
-import { UploadResponse } from './model/uploadResponse';
+import { AdminProductUpdate } from '../model/adminProductUpdate';
+import { UploadResponse } from '../model/uploadResponse';
 
 @Injectable({
   providedIn: 'root'
@@ -27,10 +27,5 @@ export class AdminProductUpdateService {
       return this.http.put<AdminProductUpdate>('/api/admin/product/'+id,value);
   }
 
-  uploadImage(formData: FormData): Observable<UploadResponse> {
-      return this.http.post<UploadResponse>('/api/admin/product/image-upload', formData);
-  }
-
-  
     
 }

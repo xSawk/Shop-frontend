@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { AdminProductService } from '../admin-product/admin-product.service';
-import { AdminCategoryNamesDto } from '../common/dto/adminCategoryNamesDto';
+import { AdminProductService } from '../admin-product.service';
+import { AdminCategoryNamesDto } from '../../common/dto/adminCategoryNamesDto';
 import { AdminProductUpdateService } from './admin-product-update.service';
 
-import { AdminProductUpdate } from './model/adminProductUpdate';
+import { AdminProductUpdate } from '../model/adminProductUpdate';
+import { AdminProductImageService } from '../admin-product-image.service';
 
 @Component({
   selector: 'app-admin-product-update',
@@ -23,6 +24,7 @@ export class AdminProductUpdateComponent implements OnInit {
 
   constructor(private router: ActivatedRoute, 
     private adminProductUpdateService: AdminProductUpdateService, 
+    private adminProductImageService : AdminProductImageService,
     private formBulider: FormBuilder){
 
   }
@@ -89,7 +91,7 @@ export class AdminProductUpdateComponent implements OnInit {
   uploadFile(){
     let formData = new FormData();
     formData.append('file', this.imageForm.get('file')?.value);
-    this.adminProductUpdateService.uploadImage(formData)
+    this.adminProductImageService.uploadImage(formData)
       .subscribe(result => this.image = result.filename);
       console.log(this.image);
   }
