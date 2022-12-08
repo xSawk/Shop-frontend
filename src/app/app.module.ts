@@ -7,11 +7,13 @@ import { PageModule } from './layouts/page/page.module';
 import { AdminPageModule } from './layouts/admin-page/admin-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminReviewComponent } from './modules/admin/admin-review/admin-review.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+
    
   
   ],

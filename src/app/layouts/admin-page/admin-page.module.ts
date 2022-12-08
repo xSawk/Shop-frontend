@@ -13,6 +13,7 @@ import { AdminConfirmDialogComponent } from 'src/app/modules/admin/common/compon
 import { AdminCategoryComponent } from 'src/app/modules/admin/admin-category/admin-category.component';
 import { AdminCategoryAddComponent } from 'src/app/modules/admin/admin-category/admin-category-add/admin-category-add.component';
 import { AdminCategoryUpdateComponent } from 'src/app/modules/admin/admin-category/admin-category-update/admin-category-update.component';
+import { AdminReviewComponent } from 'src/app/modules/admin/admin-review/admin-review.component';
 
 
 
@@ -26,7 +27,8 @@ import { AdminCategoryUpdateComponent } from 'src/app/modules/admin/admin-catego
     AdminConfirmDialogComponent,
     AdminCategoryComponent,
     AdminCategoryAddComponent,
-    AdminCategoryUpdateComponent
+    AdminCategoryUpdateComponent,
+    AdminReviewComponent
   ],
   imports: [
     CommonModule,
