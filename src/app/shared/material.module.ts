@@ -9,7 +9,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
-
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [],
@@ -23,7 +23,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatInputModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatBadgeModule
 
   ],
   exports: [
@@ -35,7 +36,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatTableModule,
     MatInputModule,
     MatDialogModule,
-    MatSelectModule
+    MatSelectModule,
+    MatBadgeModule
   ]
 })
 export class MaterialModule { }
