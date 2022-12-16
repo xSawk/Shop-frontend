@@ -6,6 +6,7 @@
     <div>Data złożenia: {{orderSummary.placeDate | date: 'yyyy-MM-dd HH-mm'}}</div>
     <div>Status: {{orderSummary.status}}</div>
     <div>Wartość: {{orderSummary.grossValue}}</div>
+    <div>Note: {{orderSummary.payment.note}}</div>
 </div>
 
 <div *ngIf="!orderSummary && cartSummary && cartSummary.items.length <= 0 ">
@@ -101,7 +102,35 @@
                     <div class="summary"> Wartość: </div>
                     <div class="summary"> <b>{{cartSummary!.summary.grossValue}}</b></div>
                 </div>
+                <div>
+                    <h2>Dostawa:</h2>
+                    <mat-radio-group fxLayout="column" formControlName="shipment">
+                        <mat-radio-button *ngFor="let shipment of initData?.shipment" [value]="shipment"
+                         [checked]="shipment.defaultShipment" >
+                        <span class="shipment-1">{{shipment.name}}</span>
+                        <span class="shipment-2">{{shipment?.price}} PLN</span>  
+                    </mat-radio-button>   
+                    </mat-radio-group>
+                </div>
+
+                <div>
+                    <h2>Platność:</h2>
+                    <mat-radio-group fxLayout="column" formControlName="shipment">
+                        <mat-radio-button *ngFor="let payment of initData?.payment" [value]="payment"
+                         [checked]="payment.defaultPayment" >
+                        <span class="shipment-1">{{payment.name}}</span>
+                    </mat-radio-button>   
+                    </mat-radio-group>
+                </div>
+
+
             </div>
+            <div fxLayoutAlign="end">
+                    <div class="orderTotal"> Całkowita kwota: {{cartSummary.summary.grossValue + shipment?.value?.price}}
+                        
+                    </div>
+            </div>
+           
             <div fxLayoutAlign="end start">
                 <button mat-flat-button color="accent" class="orderButton">Zamawiam i płacę</button>
             </div>

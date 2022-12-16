@@ -10,6 +10,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSelectModule} from '@angular/material/select';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatRadioModule} from '@angular/material/radio';
 
 @NgModule({
   declarations: [],
@@ -24,7 +25,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatRadioModule
 
   ],
   exports: [
@@ -37,7 +39,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatRadioModule
   ]
 })
 export class MaterialModule { }

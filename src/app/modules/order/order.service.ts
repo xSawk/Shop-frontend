@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CartSummary } from '../common/model/cart/cartSummary';
 import { CartCommonService } from '../common/service/cart-common.service';
+import { InitData } from './model/initData';
 import { OrderDto } from './model/orderDto';
 import { OrderSummary } from './model/orderSummary';
 
@@ -25,6 +26,12 @@ export class OrderService {
       return this.http.post<OrderSummary>("/api/order", order);
 
   }
+
+  getInitData(): Observable<InitData>{
+    return this.http.get<InitData>("/api/order/initData")
+
+  }
+
 
 
 }
