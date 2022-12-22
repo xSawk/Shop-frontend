@@ -1,0 +1,47 @@
+.order-col-1{
+  display: flex;
+  flex-direction: column;
+}
+  .header {
+    display: flex;
+    font-weight: bold;
+    width: 30%;
+    text-align: center;
+  }
+  
+  .row {
+    display: flex;
+    width: 30%;
+    text-align: center;
+  }
+  .row-1 {
+    background-color: white;
+    display: flex;
+    width: 30%;
+ 
+  }
+  
+  .row:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  span {
+    flex: 1;
+    padding: 8px;
+  }
+
+  .clientData{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .selectStatus {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button {
+    margin-top: 25px;
+    
+  }
+

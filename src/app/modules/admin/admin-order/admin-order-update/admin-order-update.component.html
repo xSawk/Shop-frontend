@@ -1,0 +1,62 @@
+<h1>Edycja zamówienia </h1>
+<div>
+    <h2>Dane zamówienia</h2>
+    Numer zamówienia: {{order?.id}}
+    <br /><br />
+    Data złożenia: {{order?.placeDate | date : 'yyyy-MM-dd HH:mm'}}<br />
+    Płatność: {{order?.payment?.name}}<br /><br />
+    
+    <form [formGroup]="formGroup" id="ngForm" fxLayaout="row" fxLayoutAlign="space-between start" (submit)="changeStatus()">
+        <mat-form-field appearance="fill">
+            <mat-label>Status</mat-label>
+            <mat-select formControlName="orderStatus">
+                <mat-option *ngFor="let status of statuses | keyvalue" [value]="status.key">{{status.value}}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </form>
+    
+    
+</div>
+<div>
+    <h2>Pozycje</h2>
+    <div class="order-col-1">
+        <div class="header">
+          <span> Nazwa </span>
+          <span> Ilość </span>
+          <span> Wartość </span>
+        </div>
+        <div *ngFor="let row of order?.orderRows" class="row">
+        
+            <span *ngIf="row.product">{{row?.product?.name}}</span>
+            <span *ngIf="row.product">{{row.quantity}}</span>
+            <span *ngIf="row.product">{{row.quantity * row.price}}</span>
+            <span *ngIf="row.shipment">{{row?.shipment?.name}}</span>
+            <span *ngIf="row.shipment">{{row?.quantity}}</span>
+            <span *ngIf="row.shipment">{{row.quantity * row.price}}</span>
+            
+        </div>
+        <div class="row-1">
+            <span></span>
+            <span></span>
+            <span><b>Wartość: {{order?.grossValue}}</b></span>
+          </div>
+  
+</div>
+</div>
+<div class="clientData">
+    <h2>Dane klienta</h2>
+    <div>Imię: {{order?.firstname}}</div>
+    <div>Nazwisko: {{order?.lastname}}</div>
+    <div>Ulica: {{order?.street}}</div>
+    <div>Kod: {{order?.zipcode}}</div>
+    <div>Miasto: {{order?.city}}</div>
+    <div>Email: {{order?.email}}</div>
+    <div>Tel: {{order?.phone}}</div>
+</div>
+
+<button mat-flat-button color="primary" form="ngForm">Zapisz</button>
+
+
+
+
+

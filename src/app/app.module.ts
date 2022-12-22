@@ -8,7 +8,7 @@ import { AdminPageModule } from './layouts/admin-page/admin-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { OrderComponent } from './modules/order/order.component';
+
 
 
 
@@ -16,7 +16,8 @@ import { OrderComponent } from './modules/order/order.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
+  
  
     
 

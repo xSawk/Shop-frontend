@@ -1,0 +1,32 @@
+.mat-column-id {
+    width: 60px;
+}
+.mat-column-actions {
+    width: 120px;
+}
+.status-New{
+    background-color: rgb(155, 219, 166);
+    padding: 7px;
+}
+.status-Paid{
+    background-color: rgb(197, 100, 34);
+    padding: 7px;
+}
+.status-Processing{
+    background-color: rgb(165, 151, 151);
+    padding: 7px;
+}
+.status-Waiting_for_delivery{
+    background-color: rgb(187, 53, 165);
+    padding: 7px;
+}
+.status-Completed{
+    background-color: rgb(26, 236, 6);
+    padding: 7px;
+}
+.status-Canceled{
+    background-color: rgb(245, 0, 0);
+    padding: 7px;
+}
+
+
