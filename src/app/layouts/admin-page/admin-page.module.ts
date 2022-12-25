@@ -16,6 +16,7 @@ import { AdminCategoryUpdateComponent } from 'src/app/modules/admin/admin-catego
 import { AdminReviewComponent } from 'src/app/modules/admin/admin-review/admin-review.component';
 import { AdminOrderComponent } from 'src/app/modules/admin/admin-order/admin-order.component';
 import { AdminOrderUpdateComponent } from 'src/app/modules/admin/admin-order/admin-order-update/admin-order-update.component';
+import { AdminLoginComponent } from 'src/app/modules/admin/admin-login/admin-login.component';
 
 
 
@@ -32,7 +33,7 @@ import { AdminOrderUpdateComponent } from 'src/app/modules/admin/admin-order/adm
     AdminCategoryUpdateComponent,
     AdminReviewComponent,
     AdminOrderComponent,
-    AdminOrderUpdateComponent
+    AdminOrderUpdateComponent,
   ],
   imports: [
     CommonModule,
