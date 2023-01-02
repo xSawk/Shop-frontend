@@ -7,6 +7,9 @@ import jwt_decode from 'jwt-decode'
 })
 export class JwtService {
 
+  private adminAccess = false;
+
+
   constructor() { }
 
 
@@ -19,16 +22,24 @@ export class JwtService {
   }
 
   isLoggedIn(): boolean {
-      let token = localStorage.getItem("token");
-  
-      return token != null && this.isExpired(token);
+    let token = localStorage.getItem("token");
+     return token != null && this.isExpired(token);
   }
 
-  isExpired(token: string): boolean{
 
-    let decodedToken = jwt_decode<any>(token);
-    return (decodedToken.exp * 1000) > new Date().getTime(); 
+  private isExpired(token: string): boolean {
+    let tokenDecoded = jwt_decode<any>(token);
+    return (tokenDecoded.exp * 1000) > new Date().getTime();
   }
+
+  public getAdminAccess(): boolean {
+    return this.adminAccess;
+  }
+  public setAdminAccess(adminAccess: boolean) {
+    this.adminAccess = adminAccess;
+  }
+
+
 
  
 

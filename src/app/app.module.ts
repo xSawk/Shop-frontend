@@ -8,13 +8,9 @@ import { AdminPageModule } from './layouts/admin-page/admin-page.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
-import { AdminLoginComponent } from './modules/admin/admin-login/admin-login.component';
 import { AdminPageEmptyModule } from './layouts/admin-page-empty/admin-page-empty.module';
 import { TokenInterceptor } from './modules/common/interceptor/tokenInterceptor';
-import { AdminAuthorizeGuard } from './modules/common/guard/adminAuthorizeGuard';
-
-
-
+import { AdminAuthorizeGuard } from './modules/admin/common/guard/adminAuthorizeGuard';
 
 
 

@@ -1,1 +1,21 @@
-<p>login works!</p>
+<div fxLayout="row">
+    <div fxFlex>
+        <h2>Logowanie</h2>
+        <form [formGroup]="loginForm" fxLayout="column" (submit)="login()" class="loginForm">
+            <div *ngIf="loginError" class="error">Podaj poprawne dane logowania</div>
+            <mat-form-field appearance="fill">
+                <mat-label>Login</mat-label>
+                <input matInput formControlName="username" placeholder="Podaj swój email">
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Hasło</mat-label>
+                <input type="password" matInput formControlName="password">
+            </mat-form-field>
+            <button mat-flat-button color="primary">Zaloguj</button>
+            <div class="registerLink"> 
+            <p>Nie masz jeszcze konta? <a routerLink="/register">Zarejestruj się</a></p>
+        </div> 
+        </form>
+        
+    </div>
+</div>
